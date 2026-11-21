@@ -50,6 +50,40 @@ h1 {
 .watch-button:hover {
     background: #005fa3;
 }
+
+.chapters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.chapter {
+    width: 220px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.chapter:hover {
+    transform: scale(1.03);
+}
+
+.chapter img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.caption {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
 </style>
 </head>
 
@@ -78,12 +112,36 @@ h1 {
 </div>
 
 <div class="video-card">
+
     <h2>🎉 Jasmin's 7th Birthday</h2>
-    <a class="watch-button"
-       href="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1"
-       target="_blank">
-       ▶ Watch Video
-    </a>
+
+    <video id="jazzVideo" controls style="width:100%; border-radius:8px;">
+        <source src="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <h3>Video Chapters</h3>
+
+    <div class="chapters">
+
+        <div class="chapter" onclick="jumpTo(603)">
+            <img src="sam_christning.JPG" alt="Sam's Christening">
+            <div class="caption">
+                ⛪ Sam's Christening<br>
+                <small>10:03</small>
+            </div>
+        </div>
+
+        <div class="chapter" onclick="jumpTo(1054)">
+            <img src="jazz_7th_bday.JPG" alt="Tianah's 4th Birthday">
+            <div class="caption">
+                🎂 Tianah's 4th Birthday<br>
+                <small>17:34</small>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <div class="video-card">
@@ -96,6 +154,14 @@ h1 {
 </div>
 
 </div>
+
+<script>
+function jumpTo(seconds) {
+    const video = document.getElementById('jazzVideo');
+    video.currentTime = seconds;
+    video.play();
+}
+</script>
 
 </body>
 </html>

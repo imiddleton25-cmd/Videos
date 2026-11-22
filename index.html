@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -34,6 +34,7 @@ h1 {
 
 .video-card h2 {
     margin-top: 0;
+    color: #333;
 }
 
 .watch-button {
@@ -92,6 +93,12 @@ video {
 small {
     color: #666;
 }
+
+@media (max-width: 700px) {
+    .chapter {
+        width: 100%;
+    }
+}
 </style>
 </head>
 
@@ -105,83 +112,4 @@ small {
     <h2>🎂 Jazz 1st Birthday</h2>
 
     <a class="watch-button"
-       href="https://www.youtube.com/watch?v=SYepH7-VluM"
-       target="_blank">
-       ▶ Watch Video
-    </a>
-</div>
-
-<div class="video-card">
-    <h2>🌍 South Africa</h2>
-
-    <a class="watch-button"
-       href="https://www.dropbox.com/scl/fi/f2gxdm6662zhpfh4iyzs1/Dvd-Video-Recording-1.mp4?rlkey=568lyjxm0iswbv5txh6ylk9m7&raw=1"
-       target="_blank">
-       ▶ Watch Video
-    </a>
-</div>
-
-<div class="video-card">
-
-    <h2>🎉 Jasmin's 7th Birthday</h2>
-
-    <video id="jazzVideo" controls>
-        <source src="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1"
-                type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
-
-    <h3>Jump to Chapters</h3>
-
-    <div class="chapters">
-
-        <div class="chapter" onclick="jumpTo(603)">
-            <img src="sam_christning.JPG" alt="Sam's Christening">
-            <div class="caption">
-                ⛪ Sam's Christening<br>
-                <small>10:03</small>
-            </div>
-        </div>
-
-        <div class="chapter" onclick="jumpTo(1054)">
-            <img src="jazz_7th_bday.JPG" alt="Tianah's 4th Birthday">
-            <div class="caption">
-                🎂 Tianah's 4th Birthday<br>
-                <small>17:34</small>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="video-card">
-    <h2>🎂 Sam's 3rd Birthday</h2>
-
-    <a class="watch-button"
-       href="https://www.dropbox.com/scl/fi/nmr597lb8ll4lbvrl7jq6/Dvd-Video-Recording1.mp4?rlkey=16l1ypluzz772m8kyv1o0ml9t&raw=1"
-       target="_blank">
-       ▶ Watch Video
-    </a>
-</div>
-
-</div>
-
-<script>
-function jumpTo(seconds) {
-    const video = document.getElementById('jazzVideo');
-
-    if (video.readyState > 0) {
-        video.currentTime = seconds;
-        video.play();
-    } else {
-        video.addEventListener('loadedmetadata', function() {
-            video.currentTime = seconds;
-            video.play();
-        }, { once: true });
-    }
-}
-</script>
-
-</body>
-</html>
+       href=

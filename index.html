@@ -19,8 +19,39 @@ body{
     border-radius:12px;
     box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
-</style>
 
+video{
+    width:100%;
+    border-radius:8px;
+}
+
+.chapters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:15px;
+}
+
+.chapter{
+    width:220px;
+    cursor:pointer;
+    border:1px solid #ddd;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.chapter img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+}
+
+.caption{
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+</style>
 </head>
 
 <body>
@@ -28,23 +59,42 @@ body{
 <h1>🎥 Family Videos</h1>
 
 <div class="card">
-<h2>🎂 Jazz 1st Birthday</h2>
+    <h2>🎉 Jasmin's 7th Birthday</h2>
 
-<a href="https://www.youtube.com/watch?v=SYepH7-VluM" target="_blank">
-Watch Video
-</a>
+    <video id="jazzVideo" controls>
+        <source src="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1" type="video/mp4">
+    </video>
+
+    <h3>Chapters</h3>
+
+    <div class="chapters">
+
+        <div class="chapter" onclick="jumpTo(603)">
+            <img src="sam_christning.JPG">
+            <div class="caption">
+                ⛪ Sam's Christening<br>
+                10:03
+            </div>
+        </div>
+
+        <div class="chapter" onclick="jumpTo(1054)">
+            <img src="jazz_7th_bday.JPG">
+            <div class="caption">
+                🎂 Tianah's 4th Birthday<br>
+                17:34
+            </div>
+        </div>
+
+    </div>
 </div>
 
-<div class="card">
-<h2>🎉 Jasmin's 7th Birthday</h2>
-
-<video controls width="100%">
-<source src="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1" type="video/mp4">
-</video>
-
-<p>Test Video Player</p>
-
-</div>
+<script>
+function jumpTo(seconds){
+    const video = document.getElementById('jazzVideo');
+    video.currentTime = seconds;
+    video.play();
+}
+</script>
 
 </body>
 </html>

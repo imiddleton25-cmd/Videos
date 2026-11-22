@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -32,6 +32,10 @@ h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.video-card h2 {
+    margin-top: 0;
+}
+
 .watch-button {
     display: inline-block;
     background: #0078d4;
@@ -46,6 +50,11 @@ h1 {
     background: #005fa3;
 }
 
+video {
+    width: 100%;
+    border-radius: 8px;
+}
+
 .chapters {
     display: flex;
     flex-wrap: wrap;
@@ -55,10 +64,16 @@ h1 {
 
 .chapter {
     width: 220px;
-    background: white;
+    cursor: pointer;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
+    background: white;
+    transition: 0.2s;
+}
+
+.chapter:hover {
+    transform: scale(1.03);
 }
 
 .chapter img {
@@ -76,12 +91,6 @@ h1 {
 
 small {
     color: #666;
-}
-
-@media (max-width:700px){
-    .chapter{
-        width:100%;
-    }
 }
 </style>
 </head>
@@ -113,19 +122,20 @@ small {
 </div>
 
 <div class="video-card">
+
     <h2>🎉 Jasmin's 7th Birthday</h2>
 
-    <a class="watch-button"
-       href="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1"
-       target="_blank">
-       ▶ Watch Video
-    </a>
+    <video id="jazzVideo" controls>
+        <source src="https://www.dropbox.com/scl/fi/qm6s3f8gmbtx6cabckwil/jazz_7th_bday.mp4?rlkey=tlnswlzqgjxadcjj3rl14jcbh&raw=1"
+                type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-    <h3>Highlights</h3>
+    <h3>Jump to Chapters</h3>
 
     <div class="chapters">
 
-        <div class="chapter">
+        <div class="chapter" onclick="jumpTo(603)">
             <img src="sam_christning.JPG" alt="Sam's Christening">
             <div class="caption">
                 ⛪ Sam's Christening<br>
@@ -133,7 +143,7 @@ small {
             </div>
         </div>
 
-        <div class="chapter">
+        <div class="chapter" onclick="jumpTo(1054)">
             <img src="jazz_7th_bday.JPG" alt="Tianah's 4th Birthday">
             <div class="caption">
                 🎂 Tianah's 4th Birthday<br>
@@ -142,6 +152,7 @@ small {
         </div>
 
     </div>
+
 </div>
 
 <div class="video-card">
@@ -152,47 +163,25 @@ small {
        target="_blank">
        ▶ Watch Video
     </a>
-
-    <h3>Highlights</h3>
-
-    <div class="chapters">
-
-        <div class="chapter">
-            <img src="brownies.JPG" alt="Brownies">
-            <div class="caption">
-                🍫 Brownies<br>
-                <small>5:13</small>
-            </div>
-        </div>
-
-        <div class="chapter">
-            <img src="dolphin_show.JPG" alt="Dolphin Show">
-            <div class="caption">
-                🐬 Dolphin Show<br>
-                <small>20:28</small>
-            </div>
-        </div>
-
-        <div class="chapter">
-            <img src="animal.JPG" alt="Animal Show">
-            <div class="caption">
-                🦁 Animal Show<br>
-                <small>38:31</small>
-            </div>
-        </div>
-
-        <div class="chapter">
-            <img src="show.JPG" alt="Show">
-            <div class="caption">
-                🎭 Show<br>
-                <small>1:57:18</small>
-            </div>
-        </div>
-
-    </div>
 </div>
 
 </div>
+
+<script>
+function jumpTo(seconds) {
+    const video = document.getElementById('jazzVideo');
+
+    if (video.readyState > 0) {
+        video.currentTime = seconds;
+        video.play();
+    } else {
+        video.addEventListener('loadedmetadata', function() {
+            video.currentTime = seconds;
+            video.play();
+        }, { once: true });
+    }
+}
+</script>
 
 </body>
 </html>

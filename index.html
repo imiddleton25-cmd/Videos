@@ -10,14 +10,39 @@ body{
     font-family:Arial,sans-serif;
     background:#f5f7fa;
     padding:20px;
+    margin:0;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#0078d4;
 }
 
 .card{
     background:white;
     padding:20px;
-    margin-bottom:20px;
+    margin-bottom:25px;
     border-radius:12px;
     box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.watch-button{
+    display:inline-block;
+    background:#0078d4;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.watch-button:hover{
+    background:#005fa3;
 }
 
 video{
@@ -38,12 +63,19 @@ video{
     border:1px solid #ddd;
     border-radius:8px;
     overflow:hidden;
+    background:white;
+    transition:0.2s;
+}
+
+.chapter:hover{
+    transform:scale(1.03);
 }
 
 .chapter img{
     width:100%;
     height:140px;
     object-fit:cover;
+    display:block;
 }
 
 .caption{
@@ -51,14 +83,43 @@ video{
     padding:10px;
     font-weight:bold;
 }
+
+@media (max-width:700px){
+    .chapter{
+        width:100%;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>🎥 Family Videos</h1>
 
 <div class="card">
+    <h2>🎂 Jazz 1st Birthday</h2>
+
+    <a class="watch-button"
+       href="https://www.youtube.com/watch?v=SYepH7-VluM"
+       target="_blank">
+       ▶ Watch Video
+    </a>
+</div>
+
+<div class="card">
+    <h2>🌍 South Africa</h2>
+
+    <a class="watch-button"
+       href="https://www.dropbox.com/scl/fi/f2gxdm6662zhpfh4iyzs1/Dvd-Video-Recording-1.mp4?rlkey=568lyjxm0iswbv5txh6ylk9m7&raw=1"
+       target="_blank">
+       ▶ Watch Video
+    </a>
+</div>
+
+<div class="card">
+
     <h2>🎉 Jasmin's 7th Birthday</h2>
 
     <video id="jazzVideo" controls>
@@ -69,16 +130,16 @@ video{
 
     <div class="chapters">
 
-        <div class="chapter" onclick="jumpTo(603)">
-            <img src="sam_christning.JPG">
+        <div class="chapter" onclick="jumpToJazz(603)">
+            <img src="sam_christning.JPG" alt="">
             <div class="caption">
                 ⛪ Sam's Christening<br>
                 10:03
             </div>
         </div>
 
-        <div class="chapter" onclick="jumpTo(1054)">
-            <img src="jazz_7th_bday.JPG">
+        <div class="chapter" onclick="jumpToJazz(1054)">
+            <img src="jazz_7th_bday.JPG" alt="">
             <div class="caption">
                 🎂 Tianah's 4th Birthday<br>
                 17:34
@@ -86,16 +147,11 @@ video{
         </div>
 
     </div>
+
 </div>
 
-<script>
-function jumpTo(seconds){
-    const video = document.getElementById('jazzVideo');
-    video.currentTime = seconds;
-    video.play();
-}
-</script>
 <div class="card">
+
     <h2>🎂 Sam's 3rd Birthday</h2>
 
     <video id="samVideo" controls>
@@ -107,7 +163,7 @@ function jumpTo(seconds){
     <div class="chapters">
 
         <div class="chapter" onclick="jumpToSam(313)">
-            <img src="brownies.JPG">
+            <img src="brownies.JPG" alt="">
             <div class="caption">
                 🍫 Brownies<br>
                 5:13
@@ -115,7 +171,7 @@ function jumpTo(seconds){
         </div>
 
         <div class="chapter" onclick="jumpToSam(1228)">
-            <img src="dolphin_show.JPG">
+            <img src="dolphin_show.JPG" alt="">
             <div class="caption">
                 🐬 Dolphin Show<br>
                 20:28
@@ -123,7 +179,7 @@ function jumpTo(seconds){
         </div>
 
         <div class="chapter" onclick="jumpToSam(2311)">
-            <img src="animal.JPG">
+            <img src="animal.JPG" alt="">
             <div class="caption">
                 🦁 Animal Show<br>
                 38:31
@@ -131,7 +187,7 @@ function jumpTo(seconds){
         </div>
 
         <div class="chapter" onclick="jumpToSam(7038)">
-            <img src="show.JPG">
+            <img src="show.JPG" alt="">
             <div class="caption">
                 🎭 Show<br>
                 1:57:18
@@ -139,14 +195,24 @@ function jumpTo(seconds){
         </div>
 
     </div>
+
+</div>
+
 </div>
 
 <script>
+function jumpToJazz(seconds){
+    const video = document.getElementById('jazzVideo');
+    video.currentTime = seconds;
+    video.play();
+}
+
 function jumpToSam(seconds){
     const video = document.getElementById('samVideo');
     video.currentTime = seconds;
     video.play();
 }
 </script>
+
 </body>
 </html>

@@ -95,6 +95,58 @@ function jumpTo(seconds){
     video.play();
 }
 </script>
+<div class="card">
+    <h2>🎂 Sam's 3rd Birthday</h2>
 
+    <video id="samVideo" controls>
+        <source src="https://www.dropbox.com/scl/fi/nmr597lb8ll4lbvrl7jq6/Dvd-Video-Recording1.mp4?rlkey=16l1ypluzz772m8kyv1o0ml9t&raw=1" type="video/mp4">
+    </video>
+
+    <h3>Chapters</h3>
+
+    <div class="chapters">
+
+        <div class="chapter" onclick="jumpToSam(313)">
+            <img src="brownies.JPG">
+            <div class="caption">
+                🍫 Brownies<br>
+                5:13
+            </div>
+        </div>
+
+        <div class="chapter" onclick="jumpToSam(1228)">
+            <img src="dolphin_show.JPG">
+            <div class="caption">
+                🐬 Dolphin Show<br>
+                20:28
+            </div>
+        </div>
+
+        <div class="chapter" onclick="jumpToSam(2311)">
+            <img src="animal.JPG">
+            <div class="caption">
+                🦁 Animal Show<br>
+                38:31
+            </div>
+        </div>
+
+        <div class="chapter" onclick="jumpToSam(7038)">
+            <img src="show.JPG">
+            <div class="caption">
+                🎭 Show<br>
+                1:57:18
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function jumpToSam(seconds){
+    const video = document.getElementById('samVideo');
+    video.currentTime = seconds;
+    video.play();
+}
+</script>
 </body>
 </html>
